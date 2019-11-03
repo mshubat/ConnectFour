@@ -42,9 +42,18 @@ public class Board {
             for (int col = 0; col < this.cols; col++) {
                 System.out.print(this.grid[row][col] + " ");
             }
-            System.out.println();
+            if (row != this.rows){
+                System.out.println();
+            }
+        }
+        for (int i=0 ; i<this.cols ; i++){
+            System.out.print("- ");
         }
         System.out.println();
+        for (int i=0 ; i<this.cols ; i++){
+            System.out.print(i+1 + " ");
+        }
+        System.out.println("\n");
     }
 
     /**

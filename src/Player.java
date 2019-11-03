@@ -35,7 +35,7 @@ public class Player {
             System.out.print(name + " enter your move.\ncol: ");
             col = input.nextInt();
             count += 1;
-        } while (col >= board.getCols() || col < 0 || board.col_counts[col] == board.getRows());
+        } while (col > board.getCols() || col < 1 || board.col_counts[col-1] == board.getRows());
 
         return col;
     }
@@ -48,14 +48,15 @@ public class Player {
      * @return
      */
     public boolean makeMove(int col, Board board) {
-
+        // Adjusted since column names start at 1, but indices at 0.
+        int colIndex = col-1;
         // Check col is not full
-        if (board.col_counts[col] < board.getRows()) {
+        if (board.col_counts[colIndex] < board.getRows()) {
             int[][] grid = board.getGrid();
 
 
-            grid[board.getRows() - 1 - board.col_counts[col]][col] = this.sym;
-            board.col_counts[col] += 1;
+            grid[board.getRows() - 1 - board.col_counts[colIndex]][colIndex] = this.sym;
+            board.col_counts[colIndex] += 1;
             board.spotsRemaining -= 1;
         }
         return false;

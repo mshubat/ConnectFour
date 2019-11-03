@@ -20,9 +20,9 @@ public class GameAI extends Player {
         int choice;
         do {
             double dec = Math.random();
-            choice = (int) Math.floor(board.getCols() * dec);
+            choice = (int) Math.ceil(board.getCols() * dec);
 
-        } while (board.col_counts[choice] == board.getRows());
+        } while (board.col_counts[choice-1] == board.getRows());
 
         return choice;
     }

@@ -80,7 +80,7 @@ public class ConnectFour {
         // End of Game Message
         if (winner == 1) {
             System.out.println("Player 1 wins!!");
-        } else if (game.player2.isHuman()) {
+        } else if (game.players == 2) {
             System.out.println("Player 2 wins!!");
         } else {
             System.out.println("The AI overlord wins :|");
